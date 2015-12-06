@@ -1,0 +1,81 @@
+
+<!-- The main template used to render everything -->
+<template name="mainTemplate">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        {{> navTemplate}}
+      </div>
+      <div class="col-md-8">
+        {{> yield}}
+      </div>
+    </div>
+  </div>
+</template>
+
+<!-- This template renders both the list and the adding of Todos -->
+<!-- Items will be clickable and have their own tasks stored in them -->
+<template name="navTemplate">
+  {{> loginButtons}}
+  {{> todosAddTemplate}}
+  {{> todosTemplate}}
+</template>
+
+<!-- Template for the todo list -->
+<template name="todosTemplate">
+  <div class="todoUl">
+    {{#each todos}}
+      <p class="{{#if checked}}checked{{/if}}">
+        <!-- <input type="checkbox" name="checkbox" checked="{{checked}}" class="toggle-checked">-->
+        <a href="/tasks/{{_id}}"><input type="text" name="todoItem" value="{{todo}}"></a>
+        <button type="button" name="btnDelTodo" class="btn btn-danger"> <i class="fa fa-trash-o"></i> </button>
+      </p>
+    {{/each}}
+  </div>
+</template>
+
+<!-- Template for adding new Todo item -->
+<template name="todosAddTemplate">
+  <a href="{{pathFor route='signupTemplate'}}" class="btnSignUp btn btn-primary">Sign up</a>
+  <a href="{{pathFor route='signinTemplate'}}" class="btnLogIn btn btn-primary">Sign in</a>
+  <h3><a href="{{pathFor route='home'}}">TODOS</a></h3>
+  <form class="add-form">
+    <input type="text" name="todoInput" value="" placeholder="Add a todo item here...">
+    <button type="submit" name="btnAddTodo" class="btn btn-primary"> <i class="fa fa-plus"></i> </button>
+  </form>
+</template>
+
+<!-- Yielded Templates -->
+<template name="tasksTemplate">
+  <h3>{{todo}}</h3>
+  <form class="add-task-form">
+    <input type="text" name="taskInput" value="" placeholder="Add new task here..">
+    <button type="submit" name="btnAddTask" class="btn btn-primary"> <i class="fa fa-plus"></i> </button>
+  </form>
+  {{> tasksViewTemplate}}
+</template>
+
+<template name="tasksViewTemplate">
+  {{#each tasks}}
+    <p class="{{#if checked}}checked{{/if}}">
+
+      <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+      <input type="text" name="taskItem" value="{{task}}">
+      <button type="button" name="btnDelTask"> <i class="fa fa-times"></i> </button>
+    </p>
+  {{/each}}
+</template>
+
+<!-- Template for user sign up -->
+<template name="signupTemplate">
+  Sign up
+</template>
+
+<!-- Template for user sign in -->
+<template name="signinTemplate">
+  Sign in
+</template>
+
+<template name="home">
+  Welcome to my version of<br/> TODOS Meteor App
+</template>

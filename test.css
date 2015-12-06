@@ -1,0 +1,14 @@
+input[type="text"] {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+input[type="text"]:focus {
+    outline: none;
+}
+.checked > input[name="taskItem"]{
+  text-decoration: line-through;
+  color: #ddd;
+}
