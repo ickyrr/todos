@@ -4,10 +4,7 @@ Template.todosAddTemplate.events({
     event.preventDefault();
     var todo = event.target.todoInput.value;
 
-    Todos.insert({
-      todo: todo,
-      createdAt: new Date()
-    });
+    Meteor.call('addTodos', todo);
 
     event.target.todoInput.value = "";
   }

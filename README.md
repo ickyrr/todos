@@ -4,6 +4,16 @@
 - users can sign up (with validation)
 - users can sign in but without form validation
 - organized files
+- removed autopublish and insecure
+- applied Meteor.publish
+- created addTodo method for access to server
+
+# TODO(s)
+-------------------
+
+- apply access to tasks
+- design
+- create other necessary functions like deleting and editing
 
 ## File Structure
 
