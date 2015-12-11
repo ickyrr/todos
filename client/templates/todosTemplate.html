@@ -1,0 +1,14 @@
+<!-- This template renders both the list and the adding of Todos -->
+<!-- Items will be clickable and have their own tasks stored in them -->
+<!-- Template for the todo list -->
+<template name="todosTemplate">
+  <div class="todoUl">
+    {{#each todos}}
+      <p class="{{#if checked}}checked{{/if}}">
+        <!-- <input type="checkbox" name="checkbox" checked="{{checked}}" class="toggle-checked">-->
+        <a href="/tasks/{{_id}}"><input type="text" name="todoItem" value="{{todo}}"></a>
+        <button type="button" name="btnDelTodo" class="btn btn-danger"> <i class="fa fa-trash-o"></i> </button>
+      </p>
+    {{/each}}
+  </div>
+</template>

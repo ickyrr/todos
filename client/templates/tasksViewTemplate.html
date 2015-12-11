@@ -1,0 +1,9 @@
+<template name="tasksViewTemplate">
+  {{#each tasks}}
+    <p class="{{#if checked}}checked{{/if}}">
+      <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+      <input type="text" name="taskItem" value="{{task}}">
+      <button type="button" name="btnDelTask"> <i class="fa fa-times"></i> </button>
+    </p>
+  {{/each}}
+</template>

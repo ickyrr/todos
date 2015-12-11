@@ -1,0 +1,18 @@
+<!-- Template for user sign up -->
+<template name="signupTemplate">
+  <form class="sign-up-form">
+    <div class="input-group">
+      <span class="input-group-addon" id="emailAddOn"><i class="fa fa-envelope-o"></i></span>
+      <input type="text" name="registerEmail" placeholder="Email Address" class="form-control" aria-describedby="emailAddOn">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon" id="passwordAddOn"><i class="fa fa-unlock-alt"></i></span>
+      <input type="password" name="registerPassword" placeholder="Password" class="form-control" aria-describedby="passwordAddOn" id="registerPassword">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon" id="rePassAddOn"><i class="fa fa-unlock-alt"></i></span>
+      <input type="password" name="rePassword" placeholder="Confirm Password" class="form-control" aria-describedby="rePassAddOn">
+    </div>
+      <button type="submit" class="btn btn-primary">Create Account</button>
+  </form>
+</template>

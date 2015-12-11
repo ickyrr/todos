@@ -1,0 +1,43 @@
+input[type="text"] {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+input[type="text"]:focus {
+    outline: none;
+}
+.checked > input[name="taskItem"]{
+  text-decoration: line-through;
+  color: #ddd;
+}
+/*
+==================
+SIGN UP STYLE
+==================
+*/
+.sign-up-form input{
+  border: 1px solid #ccc;
+  display: block;
+}
+.input-group{
+  margin-bottom: 25px;
+}
+/*
+ERROR HANDLER
+ */
+label#loginEmail-error,
+label#registerEmail-error,
+label#registerPassword-error,
+label#rePassword-error{
+     position: fixed;
+     background-color: rgba(197, 0, 7,0.6);
+     padding: 25px;
+     z-index: 100;
+
+     -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+     -o-transition: all 1s ease;
+     transition: all 1s ease;
+ }
