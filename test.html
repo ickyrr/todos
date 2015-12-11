@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-md-12">
         {{#if currentUser}}
-          You are logged in {{loggedUser}}
+          <p id="currentUser">{{loggedUser}}</p>
           <a href="{{pathFor route='signupTemplate'}}" class="btnSignOut btn btn-primary">Sign out</a>
         {{else}}
           <a href="{{pathFor route='signupTemplate'}}" class="btnSignUp btn btn-primary">Sign up</a>
@@ -81,7 +81,7 @@
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="passwordAddOn"><i class="fa fa-unlock-alt"></i></span>
-      <input type="password" name="registerPassword" placeholder="Password" class="form-control" aria-describedby="passwordAddOn">
+      <input type="password" name="registerPassword" placeholder="Password" class="form-control" aria-describedby="passwordAddOn" id="registerPassword">
     </div>
     <div class="input-group">
       <span class="input-group-addon" id="rePassAddOn"><i class="fa fa-unlock-alt"></i></span>

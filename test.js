@@ -2,7 +2,10 @@ Todos = new Mongo.Collection("todos");
 Tasks = new Mongo.Collection("tasks");
 
 if (Meteor.isClient) {
-    // EVENTS
+    // TEMPLATE EVENTS GOES HERE
+    // ===========================
+    // ===========================
+    // ===========================
     Template.todosAddTemplate.events({
       'submit .add-form':function(events){
 
@@ -90,9 +93,14 @@ if (Meteor.isClient) {
     Template.signupTemplate.events({
       'submit .sign-up-form':function(event){
         event.preventDefault();
-        console.log('sign up clicked');
       }
     });
+    Template.signinTemplate.events({
+      'submit .sign-in-form':function(event){
+        event.preventDefault();
+      }
+    });
+
 
     Template.mainTemplate.events({
       'click .btnSignOut': function(event){
@@ -101,7 +109,10 @@ if (Meteor.isClient) {
       }
     });
 
-    // HELPERS
+    // TEMPLATE HELPERS GOES HERE
+    // ===========================
+    // ===========================
+    // ===========================
     Template.todosTemplate.helpers({
       todos: function(){
         return Todos.find({},{sort:{createdAt: -1}});
@@ -134,32 +145,93 @@ if (Meteor.isClient) {
 
     Template.mainTemplate.helpers({
       loggedUser: function(){
-        var user = Accounts.userId();
-        return user.email;
+        var user = Meteor.user().emails[0].address;
+        return user;
       }
     });
 
-    // // Sign up Validation
-    Template.signinTemplate.onCreated(function(){
-        console.log("The 'login' template was just created.");
-    });
+    // MY JS HERE
+    // ===========================
+    // ===========================
+    // ===========================
 
+
+
+    //Sign up Validation
+    Template.signupTemplate.onRendered(function(event){
+        $('.sign-up-form').validate({
+          rules:{
+            registerEmail: {
+              required: true,
+              email: true
+            },
+            registerPassword: {
+              required: true,
+              minlength: 8
+            },
+            rePassword:{
+              minlength: 8,
+              equalTo: '#registerPassword'
+            }
+          },
+          messages: {
+            registerEmail: {
+              required: "Email address is required for verification purposes",
+              email: "Please enter a valid email address"
+            },
+            registerPassword: {
+              required: "Please enter a password",
+              minlength: "You password must be at least 8 characters long"
+            },
+            rePassword: {
+              equalTo: "Both password fields must match"
+            }
+          },
+          submitHandler(){
+            let email = $('[name=registerEmail]').val(),
+                password = $('[name=registerPassword]').val();
+
+                console.log(email, password);
+
+                Accounts.createUser({
+                  email: email,
+                  password: password
+                });
+          }
+        });
+    });
+    //Sign in Validation
     Template.signinTemplate.onRendered(function(event){
-        $('.sign-in-form').validate();
+      $('.sign-in-form').validate({
+            rules: {
+              loginEmail:{
+                  required: true,
+                  email: true
+              },
+              logPassword: {
+                  required: true,
+                  password: true
+              }
+            },
+            submitHandler(){
+              let email = $('[name=loginEmail]').val(),
+                  password = $('[name=logPassword]').val();
+                  console.log(email, password);
+            }
+      });
     });
-
-    Template.signinTemplate.onDestroyed(function(){
-        console.log("The 'login' template was just destroyed.");
-    });
-}
+}//end of isClient
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
     // code to run on server at startup
   });
-}
+}//end of isServer
 
-// ROUTES
+// ROUTES GO HERE
+// ===========================
+// ===========================
+// ===========================
 Router.configure({ //set the template that shows everywhere
   layoutTemplate: 'mainTemplate'
 });
