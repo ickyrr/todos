@@ -1,15 +1,10 @@
 Template.tasksTemplate.events({
-  'submit .add-task-form': function(events){
+  'submit .add-task-form': function(event){
     event.preventDefault();
     var task = event.target.taskInput.value;
     var todoItemID = Session.get('todoItemID');
 
-    Tasks.insert({
-      _todoItemID: todoItemID,
-      task: task,
-      checked: false,
-      createdAt: new Date()
-    });
+    Meteor.call('addTask',todoItemID,task);
 
     event.target.taskInput.value = "";
   }

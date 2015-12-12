@@ -1,5 +1,5 @@
 Template.todosAddTemplate.events({
-  'submit .add-form':function(events){
+  'submit .add-form':function(event){
 
     event.preventDefault();
     var todo = event.target.todoInput.value;

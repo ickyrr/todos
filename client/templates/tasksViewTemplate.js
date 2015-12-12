@@ -3,12 +3,11 @@ Template.tasksViewTemplate.events({
   'change [type="checkbox"]':function(){
     var isCompleted = Tasks.findOne({_id:this._id},{fields:{checked:1}});
     var checked = isCompleted.checked;
-    Tasks.update(this._id,{
-      $set:{checked: ! checked}
-    });
+    Meteor.call('updateTask',this._id,checked);
   },
   'click [name="btnDelTask"]':function(){
-    Tasks.remove(this._id);
+    var taskId = this._id;
+    Meteor.call('removeTask',taskId);
   },
   'keyup [name="taskItem"]':function(){
     var taskItemID = this._id;

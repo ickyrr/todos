@@ -1,23 +1,21 @@
 Template.todosTemplate.events({
   'click [name=btnDelTodo]':function(){
-    Todos.remove({_id: this._id});
+    var todoId = this._id;
+    Meteor.call('removeTodo', todoId);
   },
   'click [name="todoItem"]':function(){
     var todoItemID = this._id;
     Session.set('todoItemID',todoItemID);
   },
-  'keyup [name="todoItem"]':function(){
+  'keyup [name="todoItem"]':function(event){
     var todoItemID = this._id;
-    var todo = event.target.value;
+    var todo = $(event.target).val();
 
     if(event.which === 27 || event.which === 13){
       $(event.target).blur();
-    }else{
-      Todos.update({_id: todoItemID},{
-        $set:{
-          todo:todo
-        }
-      });
+    }
+    else{
+      Meteor.call('updateTodo',todoItemID, todo);
     }
   }
 });

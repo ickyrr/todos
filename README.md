@@ -8,6 +8,10 @@
 - applied Meteor.publish
 - created addTodo method for access to server
 
+- added msavin:mongol package
+- can now add, delete, and update todos, and tasks
+
+
 # TODO(s)
 -------------------
 
