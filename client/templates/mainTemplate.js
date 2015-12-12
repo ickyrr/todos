@@ -2,6 +2,7 @@ Template.mainTemplate.events({
   'click .btnSignOut': function(event){
     event.preventDefault();
     Meteor.logout();
+    Router.go('/signinTemplate');
   }
 });
 Template.mainTemplate.helpers({

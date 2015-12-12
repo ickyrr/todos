@@ -1,4 +1,5 @@
 Template.todosTemplate.events({
+
   'click [name=btnDelTodo]':function(){
     var todoId = this._id;
     Meteor.call('removeTodo', todoId);
@@ -21,7 +22,8 @@ Template.todosTemplate.events({
 });
 
 Template.todosTemplate.helpers({
+  ownerId: Meteor.userId(),
   todos: function(){
-    return Todos.find({},{sort:{createdAt: -1}});
+    return Todos.find({createdBy: Meteor.userId()},{sort:{createdAt: -1}});
   }
 });

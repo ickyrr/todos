@@ -1,21 +1,25 @@
 <!-- The main template used to render everything -->
 <template name="mainTemplate">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        {{#if currentUser}}
-          <p id="currentUser">{{loggedUser}}</p>
-          <a href="{{pathFor route='signupTemplate'}}" class="btnSignOut btn btn-primary">Sign out</a>
-        {{else}}
-          <a href="{{pathFor route='signupTemplate'}}" class="btnSignUp btn btn-primary">Sign up</a>
-          <a href="{{pathFor route='signinTemplate'}}" class="btnLogIn btn btn-primary">Sign in</a>
-        {{/if}}
-      </div>
-      <div class="col-md-4">
-        {{> navTemplate}}
-      </div>
-      <div class="col-md-8">
-        {{> yield}}
+  <div class="">
+    <div class="container app-container">
+      <div class="row">
+        <div class="col-md-12">
+          {{#if currentUser}}
+            <p id="currentUser">{{loggedUser}}</p>
+            <a href="{{pathFor route='signupTemplate'}}" class="btnSignOut btn btn-danger"><i class="fa fa-sign-out"></i> Sign out</a>
+          {{else}}
+            <a href="{{pathFor route='signupTemplate'}}" class="btnSignUp btn btn-primary"><i class="fa fa-user-plus"></i> Sign up</a>
+            <a href="{{pathFor route='signinTemplate'}}" class="btnLogIn btn btn-primary"><i class="fa fa-sign-in"></i> Sign in</a>
+          {{/if}}
+          <h3><a href="{{pathFor route='home'}}">TODOS</a></h3>
+        </div>
+        <div class="col-md-4 todoList">
+
+          {{> navTemplate}}
+        </div>
+        <div class="col-md-8">
+          {{> yield}}
+        </div>
       </div>
     </div>
   </div>

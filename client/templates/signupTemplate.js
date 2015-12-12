@@ -46,6 +46,7 @@ Template.signupTemplate.onRendered(function(event){
             },function(error){
               // console.log(error.reason);
             });
+            Router.go('/');
       }
     });
 });

@@ -10,6 +10,9 @@
 
 - added msavin:mongol package
 - can now add, delete, and update todos, and tasks
+- added a little bit of design
+- local email verification
+
 
 
 # TODO(s)

@@ -4,6 +4,11 @@ Template.signinTemplate.events({
     var email = $('[name=loginEmail]').val();
     var password = $('[name=logPassword]').val();
     Meteor.loginWithPassword(email, password);
+
+    $('[name=loginEmail]').val("");
+    $('[name=logPassword]').val("");
+
+    Router.go('/');
   }
 });
 

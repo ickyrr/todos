@@ -1,9 +1,26 @@
+/*
+===========================
+MAIN STYLE
+===========================
+ */
+body{
+  background-image: url('/ignasi_pattern_s.png');
+}
+.container.app-container {
+    background-color: rgba(160,8,50,0.8);
+    margin-top: 5%;
+    border-radius: 5px;
+    padding: 25px;
+}
 input[type="text"] {
   border-top: none;
   border-left: none;
   border-right: none;
   border-bottom: 1px solid #ddd;
   cursor: pointer;
+  background-color: transparent;
+  padding: 5px;
+  margin-top: 15px;
 }
 input[type="text"]:focus {
     outline: none;
@@ -11,6 +28,13 @@ input[type="text"]:focus {
 .checked > input[name="taskItem"]{
   text-decoration: line-through;
   color: #ddd;
+}
+/*
+SIGN IN STYLE
+ */
+.sign-in-form input[type="text"],
+.sign-in-form input[type="password"]{
+  background-color: #fff;
 }
 /*
 ==================
@@ -21,9 +45,22 @@ SIGN UP STYLE
   border: 1px solid #ccc;
   display: block;
 }
+.sign-up-form input[type="text"]{
+  background-color: #fff;
+}
 .input-group{
   margin-bottom: 25px;
 }
+/*
+TODOS
+ */
+ .col-md-4.todoList {
+     background-color: rgba(255,255,255,0.7);
+     overflow: scroll;
+     height: 300px;
+     margin-top: 50px;
+     text-align: center;
+ }
 /*
 ERROR HANDLER
  */
