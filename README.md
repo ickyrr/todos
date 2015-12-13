@@ -13,6 +13,19 @@
 - added a little bit of design
 - local email verification
 
+Image Upload:
+
+#1.) COLLECTION FS:::
+https://github.com/CollectionFS/Meteor-CollectionFS
+
+sample:
+https://github.com/CollectionFS/Meteor-CollectionFS/issues/489
+
+#2.) TOMI
+https://doctorllama.wordpress.com/2014/11/06/meteor-upload-package-with-jquery-file-upload/
+https://github.com/tomitrescak/meteor-uploads
+
+#3.) https://coderwall.com/p/7tpa8w/file-upload-with-meteor-method
 
 
 # TODO(s)
