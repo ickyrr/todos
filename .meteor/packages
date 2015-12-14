@@ -24,3 +24,5 @@ accounts-ui
 themeteorchef:jquery-validation
 msavin:mongol
 email
+cfs:standard-packages
+cfs:gridfs

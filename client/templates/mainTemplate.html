@@ -5,8 +5,18 @@
       <div class="row">
         <div class="col-md-12">
           {{#if currentUser}}
-            <p id="currentUser">{{loggedUser}}</p>
-            <a href="{{pathFor route='signupTemplate'}}" class="btnSignOut btn btn-danger"><i class="fa fa-sign-out"></i> Sign out</a>
+          <div class="dropdown">
+            <img src="{{theImage}}" alt="" />
+            <a href="#" class="dropdown-toggle" type="button" id="loggedUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              {{loggedUser}}
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="currentUser">
+              <li><a href="{{pathFor route='signupTemplate'}}" class="btnSignOut"><i class="fa fa-sign-out"></i> Sign out</a></li>
+              <li><a href="/profile/{{theUser}}" id="btnProfile">Profile</a></li>
+            </ul>
+          </div>
+
           {{else}}
             <a href="{{pathFor route='signupTemplate'}}" class="btnSignUp btn btn-primary"><i class="fa fa-user-plus"></i> Sign up</a>
             <a href="{{pathFor route='signinTemplate'}}" class="btnLogIn btn btn-primary"><i class="fa fa-sign-in"></i> Sign in</a>

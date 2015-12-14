@@ -1,0 +1,16 @@
+<template name="profileTemplate">
+  <form class="upload-form">
+    <input type="file" name="file" class="myFileInput">
+    <!-- <button type="submit" name="submit">Submit</button> -->
+  </form>
+
+  {{> showProfileTemplate}}
+</template>
+
+<template name="showProfileTemplate">
+  <div class="showProfile">
+
+      <img src="{{theImage}}" alt="" />
+
+  </div>
+</template>
